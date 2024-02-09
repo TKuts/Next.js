@@ -1,15 +1,26 @@
+import MealsGrid from "@/components/meals/meals-grid";
 import Link from "next/link";
+
+import style from "./page.module.css";
 
 export default function MealsPage() {
   return (
-    <main>
-      <h1>This is meal page</h1>
-      <p>
-        <Link href="/meals/share">Share Link</Link>
-      </p>
-      <p>
-        <Link href="/meals/">some_slug</Link>
-      </p>
-    </main>
+    <>
+      <header className={style.header}>
+        <h1>
+          Delicious meals, created{" "}
+          <span className={style.highlight}>by you</span>
+        </h1>
+        <p>
+          Choose your favorite recipe and cook it yourself. It is easy and fun!
+        </p>
+        <p className={style.cta}>
+          <Link href="/meals/share">Share Your Favorite Recipe</Link>
+        </p>
+      </header>
+      <main className={style.main}>
+        <MealsGrid meals={[]} />
+      </main>
+    </>
   );
 }

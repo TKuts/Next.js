@@ -1,0 +1,16 @@
+import Link from "next/link";
+import MealItem from "./meal-item";
+
+import style from "./meals-grid.module.css";
+
+export default function MealsGrid({ meals }) {
+  return (
+    <ul className={style.meals}>
+      {meals.map((meal) => (
+        <li key={meal.id}>
+          <MealItem {...meal} />
+        </li>
+      ))}
+    </ul>
+  );
+}
