@@ -3,6 +3,9 @@ import MealsGrid from "@/components/meals/meals-grid";
 import { getMeals } from "@/lib/meals";
 import Link from "next/link";
 import style from "./page.module.css";
+import MealsLoadingPage from "./loading-out";
+
+
 
 async function Meals() {
   const meals = await getMeals();
@@ -26,7 +29,7 @@ export default function MealsPage() {
         </p>
       </header>
       <main className={style.main}>
-        <Suspense fallback={<p className={style.loading}>Feadching meals...</p>}>
+        <Suspense fallback={<MealsLoadingPage/>}>
           <Meals />
         </Suspense>
       </main>
