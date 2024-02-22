@@ -5,8 +5,6 @@ import Link from "next/link";
 import style from "./page.module.css";
 import MealsLoadingPage from "./loading-out";
 
-
-
 async function Meals() {
   const meals = await getMeals();
 
@@ -29,7 +27,7 @@ export default function MealsPage() {
         </p>
       </header>
       <main className={style.main}>
-        <Suspense fallback={<MealsLoadingPage/>}>
+        <Suspense fallback={<MealsLoadingPage />}>
           <Meals />
         </Suspense>
       </main>
